@@ -15,7 +15,7 @@ From students s join courses c on s.course_id=c.course_id;
 -- the course they are enrolled in
 
 Select s.reg_no,s.name,s.email,s.mobile_no,
-s.profile_pic,c.course_id,c.course_name,
+c.course_id,c.course_name,
 c.description AS course_description,
 c.fees, c.start_date,
 c.end_date, c.video_expire_days
