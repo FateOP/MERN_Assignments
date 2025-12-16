@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .register-card {
+            background-color: white;
+            width: 400px; 
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h2 { 
+            margin-bottom: 20px; 
+            color: #333; 
+        }
+
+        .form-group {
+             margin-bottom: 15px; 
+             text-align: left;
+             }
+
+        label {
+             display: block; 
+             margin-bottom: 5px;
+              font-weight: bold; 
+              color: #555; }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc; 
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            outline: none;
+        }
+
+   
+        input:not(:placeholder-shown):invalid {
+            border: 2px solid red;
+            background-color: #fff0f0;
+        }
+
+       
+        input:not(:placeholder-shown):valid {
+            border: 2px solid green;
+            background-color: #f0fff4;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: blue; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover { background-color: #0000cc; }
+    </style>
+</head>
+<body>
+
+    <div class="register-card">
+        <h2>Register</h2>
+        
+        <form id="registerForm" onsubmit="return handleRegister(event)">
+            
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" placeholder="Enter Name" required pattern="[A-Za-z\s]+">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" placeholder="Enter email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Create password" required minlength="6">
+            </div>
+
+           
+
+             <div class="form-group">
+                <label for="Phone">Phone Number</label>
+                <input type="Phone" id="Phone" placeholder="Phone Number" required minlength="10" title="Please enter a 10 digit phone number">
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+
+        
+        function handleRegister(event){
+            alert("Registeration successfull")
+        }
+
+    </script>
+
+</body>
+</html>
