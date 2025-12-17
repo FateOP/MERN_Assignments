@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+
+    <style>
+        body{
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .todoApp{
+            background-color: white;
+            width: 400px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-group{
+            display: flex;
+            gap: 10px;
+        }
+
+        input{
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #0000cc;
+        }
+
+        ul{
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .delete-btn{
+            background-color: red;
+            padding: 6px 10px;
+            border-radius: 5px;
+        }
+
+        .delete-btn:hover{
+            background-color: darkred;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="todoApp">
+    <h2>Todo App</h2>
+
+    <form onsubmit="addTodo(event)">
+        <div class="input-group">
+            <input type="text" id="todo" placeholder="Enter a todo" required pattern="[A-Za-z\s]+">
+            <button type="submit">Add</button>
+        </div>
+    </form>
+
+    <ul id="todoList"></ul>
+</div>
+
+<script>
+    var taskList = [];
+
+    function addTodo(event) {
+        event.preventDefault();
+
+        var todoInput = document.getElementById("todo");
+        var text = todoInput.value;
+
+        taskList.push(text);
+        showTodos();
+
+        todoInput.value = "";
+    }
+
+    function showTodos() {
+        var ul = document.getElementById("todoList");
+        ul.innerHTML = "";
+
+        for (var i = 0; i < taskList.length; i++) {
+            var li = document.createElement("li");
+
+            var span = document.createElement("span");
+            span.innerText = taskList[i];
+
+            var btn = document.createElement("button");
+            btn.innerText = "Delete";
+            btn.className = "delete-btn";
+            btn.onclick = removeTodo.bind(null, i);
+
+            li.appendChild(span);
+            li.appendChild(btn);
+            ul.appendChild(li);
+        }
+    }
+
+    function removeTodo(index) {
+        taskList.splice(index, 1);
+        showTodos();
+    }
+</script>
+
+</body>
+</html>
