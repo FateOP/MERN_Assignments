@@ -1,0 +1,20 @@
+{
+  "name": "mern_assignments",
+  "version": "1.0.0",
+  "description": "this is my express server",
+  "homepage": "https://github.com/FateOP/MERN_Assignments#readme",
+  "bugs": {
+    "url": "https://github.com/FateOP/MERN_Assignments/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FateOP/MERN_Assignments.git"
+  },
+  "license": "ISC",
+  "author": "Mrudul JD",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
